@@ -50,7 +50,7 @@ export async function fileExtByContent(content: ArrayBuffer, link: string) {
   return fileExt;
 }
 
-function recreateImageTag(match: string, anchor: string, link: string) {
+function recreateImageTag(match: string, anchor: string) {
   return `![${anchor}](${link})`;
 }
 
