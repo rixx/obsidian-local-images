@@ -33,8 +33,13 @@ export async function downloadImage(url: string): Promise<ArrayBuffer> {
   return res.body;
 }
 
-export async function fileExtByContent(content: ArrayBuffer) {
+export async function fileExtByContent(content: ArrayBuffer, link: string) {
   const fileExt = (await fromBuffer(content))?.ext;
+  //fn doesn't actually detect some svg files, use url check.
+  if (link.includes(".svg"))
+  {
+    return "svg";
+  }  
 
   // if XML, probably it is SVG
   if (fileExt == "xml") {
