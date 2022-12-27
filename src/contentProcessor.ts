@@ -44,7 +44,7 @@ export function imageTagProcessor(app: App, mediaDir: string) {
           }
 
           if (fileName) {
-            return `![${anchor}](${fileName})`;
+            return `![${anchor}](${encodeURI(fileName)})`;
           } else {
             return match;
           }
